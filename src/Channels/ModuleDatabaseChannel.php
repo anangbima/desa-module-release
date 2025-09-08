@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Channels;
+namespace Modules\DesaModuleRelease\Channels;
 
 use Illuminate\Notifications\Notification;
-use Modules\DesaModuleTemplate\Models\Notification as ModuleNotification;
+use Modules\DesaModuleRelease\Models\Notification as ModuleNotification;
 use Illuminate\Support\Facades\Log;
 
 class ModuleDatabaseChannel

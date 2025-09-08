@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Middleware;
+namespace Modules\DesaModuleRelease\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Modules\DesaModuleTemplate\Models\ApiClient;
-use Modules\DesaModuleTemplate\Services\Shared\ApiClientService;
+use Modules\DesaModuleRelease\Models\ApiClient;
+use Modules\DesaModuleRelease\Services\Shared\ApiClientService;
 use Symfony\Component\HttpFoundation\Response;
 
 class VerifyApiClient

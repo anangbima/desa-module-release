@@ -1,18 +1,18 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Helpers;
+namespace Modules\DesaModuleRelease\Helpers;
 
 class ModuleMeta
 {
     public static function get(string $key): ?string
     {
         $meta = [
-            'label' => 'Desa Module Template',
-            'studly' => 'DesaModuleTemplate',
-            'kebab' => 'desa-module-template',
-            'snake' => 'desa_module_template',
-            'plain' => 'desamoduletemplate',
-            'constant' => 'DESA_MODULE_TEMPLATE',
+            'label' => 'Desa Module Release',
+            'studly' => 'DesaModuleRelease',
+            'kebab' => 'desa-module-release',
+            'snake' => 'desa_module_release',
+            'plain' => 'desamodulerelease',
+            'constant' => 'DESA_MODULE_RELEASE',
         ];
 
         return $meta[$key] ?? null;

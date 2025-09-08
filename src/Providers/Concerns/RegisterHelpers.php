@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Providers\Concerns;
+namespace Modules\DesaModuleRelease\Providers\Concerns;
 
 trait RegisterHelpers
 {

@@ -1,7 +1,7 @@
-<x-desa-module-template::admin-layout
+<x-desa-module-release::admin-layout
     :title="__($title)"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(desa_module_release_meta('label'))"
     :desa="config('app.name')"
 >
 
@@ -25,7 +25,7 @@
 @endif
 <br>
 
-<form action="{{ route(desa_module_template_meta('kebab').'.admin.settings.update') }}" method="POST">
+<form action="{{ route(desa_module_release_meta('kebab').'.admin.settings.update') }}" method="POST">
     @csrf
     @method('PUT')
     
@@ -59,9 +59,9 @@
 
     <div class="mt-3">
         <button type="submit" class="btn btn-primary">Save Settings</button>
-        <a href="{{ route(desa_module_template_meta('kebab').'.admin.settings.index') }}" class="btn btn-secondary">Cancel</a>
+        <a href="{{ route(desa_module_release_meta('kebab').'.admin.settings.index') }}" class="btn btn-secondary">Cancel</a>
     </div>
 
 </form>
 
-</x-desa-module-template::admin-layout>
+</x-desa-module-release::admin-layout>

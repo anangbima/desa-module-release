@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Shared;
+namespace Modules\DesaModuleRelease\Services\Shared;
 
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Excel as ExcelFormat;
 use Maatwebsite\Excel\Facades\Excel;
-use Modules\DesaModuleTemplate\Exports\GenericExport;
+use Modules\DesaModuleRelease\Exports\GenericExport;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\PhpWord;
 use Symfony\Component\HttpFoundation\Response;

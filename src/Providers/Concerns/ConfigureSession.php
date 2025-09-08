@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Providers\Concerns;
+namespace Modules\DesaModuleRelease\Providers\Concerns;
 
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Session;
-use Modules\DesaModuleTemplate\Session\ModuleSessionHandler;
+use Modules\DesaModuleRelease\Session\ModuleSessionHandler;
 
 trait ConfigureSession
 {
@@ -12,10 +12,10 @@ trait ConfigureSession
     {
         $this->app->resolving(SessionManager::class, function ($sessionManager) {
             config([
-                'session.driver'     => env('DESA_MODULE_TEMPLATE_SESSION_DRIVER', 'database'),
-                'session.connection' => env('DESA_MODULE_TEMPLATE_SESSION_CONNECTION', 'desa_module_template'),
-                'session.table'      => env('DESA_MODULE_TEMPLATE_SESSION_TABLE', 'desa_module_template_sessions'),
-                'session.cookie'     => env('DESA_MODULE_TEMPLATE_SESSION_COOKIE', 'desa_module_template_session'),
+                'session.driver'     => env('DESA_MODULE_RELEASE_SESSION_DRIVER', 'database'),
+                'session.connection' => env('DESA_MODULE_RELEASE_SESSION_CONNECTION', 'desa_module_release'),
+                'session.table'      => env('DESA_MODULE_RELEASE_SESSION_TABLE', 'desa_module_release_sessions'),
+                'session.cookie'     => env('DESA_MODULE_RELEASE_SESSION_COOKIE', 'desa_module_release_session'),
             ]);
         });
         
@@ -32,10 +32,10 @@ trait ConfigureSession
     // protected function configureSession()
     // {
     //     config([
-    //         'session.driver'     => env('DESA_MODULE_TEMPLATE_SESSION_DRIVER', 'module_database'),
-    //         'session.connection' => env('DESA_MODULE_TEMPLATE_SESSION_CONNECTION', 'desa_module_template'),
-    //         'session.table'      => env('DESA_MODULE_TEMPLATE_SESSION_TABLE', 'desa_module_template_sessions'),
-    //         'session.cookie'     => env('DESA_MODULE_TEMPLATE_SESSION_COOKIE', 'desa_module_template_session'),
+    //         'session.driver'     => env('DESA_MODULE_RELEASE_SESSION_DRIVER', 'module_database'),
+    //         'session.connection' => env('DESA_MODULE_RELEASE_SESSION_CONNECTION', 'desa_module_release'),
+    //         'session.table'      => env('DESA_MODULE_RELEASE_SESSION_TABLE', 'desa_module_release_sessions'),
+    //         'session.cookie'     => env('DESA_MODULE_RELEASE_SESSION_COOKIE', 'desa_module_release_session'),
     //     ]);
 
     //     $this->app['session']->extend('module_database', function ($app) {
@@ -43,7 +43,7 @@ trait ConfigureSession
     //         $table      = config('session.table');
     //         $lifetime   = config('session.lifetime');
 
-    //         return new \Modules\DesaModuleTemplate\Session\ModuleSessionHandler(
+    //         return new \Modules\DesaModuleRelease\Session\ModuleSessionHandler(
     //             $connection, $table, $lifetime, $app
     //         );
     //     });

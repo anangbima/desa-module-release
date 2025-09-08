@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Shared;
+namespace Modules\DesaModuleRelease\Services\Shared;
 
-use Modules\DesaModuleTemplate\Repositories\Interfaces\ApiClientRepositoryInterface;
+use Modules\DesaModuleRelease\Repositories\Interfaces\ApiClientRepositoryInterface;
 
 class ApiClientService
 {

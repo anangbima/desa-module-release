@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\DesaModuleRelease\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Route;
@@ -9,19 +9,19 @@ use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 class RouteListCommand extends Command
 {
     protected $signature;
-    protected $description = 'List all routes for Desa Module Template module';
+    protected $description = 'List all routes for Desa Module Release module';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:route-list';
+        $this->signature = 'module:desamodulerelease:route-list';
         parent::__construct();
     }
 
     public function handle()
     {
         $routes = collect(Route::getRoutes())->filter(function ($route) {
-            return str_contains($route->getName(), 'desa-module-template.')
-                || str_contains($route->uri(), 'desa-module-template');
+            return str_contains($route->getName(), 'desa-module-release.')
+                || str_contains($route->uri(), 'desa-module-release');
         });
 
         if ($routes->isEmpty()) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\DesaModuleRelease\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -9,11 +9,11 @@ use Illuminate\Support\Str;
 class MakeMiddlewareCommand extends Command
 {
     protected $signature;
-    protected $description = 'Generate a new middleware for Desa Module Template';
+    protected $description = 'Generate a new middleware for Desa Module Release';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-middleware
+        $this->signature = 'module:desamodulerelease:make-middleware
             {name : Middleware name (e.g. EnsureAdmin)}';
 
         parent::__construct();
@@ -22,8 +22,8 @@ class MakeMiddlewareCommand extends Command
     public function handle()
     {
         $className = Str::studly($this->argument('name')); // EnsureAdmin
-        $namespace = 'Modules\\DesaModuleTemplate\\Http\\Middleware';
-        $targetPath = base_path('Modules/desa-module-template/src/Http/Middleware/'.$className.'.php');
+        $namespace = 'Modules\\DesaModuleRelease\\Http\\Middleware';
+        $targetPath = base_path('Modules/desa-module-release/src/Http/Middleware/'.$className.'.php');
         $stubPath = __DIR__ . '/../../../stubs/middleware.stub';
 
         File::ensureDirectoryExists(dirname($targetPath));

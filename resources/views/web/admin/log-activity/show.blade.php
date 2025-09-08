@@ -1,7 +1,7 @@
-<x-desa-module-template::admin-layout
+<x-desa-module-release::admin-layout
     :title="$title"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(desa_module_release_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -30,9 +30,9 @@
                 {{-- Action --}}
                 <div>
                     <x-badge 
-                        text="{{ desa_module_template_format_action($log->action) }}" 
+                        text="{{ desa_module_release_format_action($log->action) }}" 
                         size="sm" 
-                        color="{{ desa_module_template_action_color($log->action) }}" 
+                        color="{{ desa_module_release_action_color($log->action) }}" 
                     />
                 </div>
             </div>
@@ -88,4 +88,4 @@
         </div>
     </div>
 
-</x-desa-module-template::admin-layout>
+</x-desa-module-release::admin-layout>

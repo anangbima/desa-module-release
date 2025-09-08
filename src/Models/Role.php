@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Models;
+namespace Modules\DesaModuleRelease\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Spatie\Permission\Models\Role as SpatieRole;
@@ -15,7 +15,7 @@ class Role extends SpatieRole
     {
         parent::__construct($attributes);
 
-        $this->connection = config('desa_module_template.database.database_connection', 'desa_module_template');
-        $this->table = config('desa_module_template.database.permission_table_prefix', 'desa_module_template_') . 'roles';
+        $this->connection = config('desa_module_release.database.database_connection', 'desa_module_release');
+        $this->table = config('desa_module_release.database.permission_table_prefix', 'desa_module_release_') . 'roles';
     }
 }

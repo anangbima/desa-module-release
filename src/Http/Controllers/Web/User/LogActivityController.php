@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\User;
+namespace Modules\DesaModuleRelease\Http\Controllers\Web\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Models\LogActivity;
-use Modules\DesaModuleTemplate\Services\User\LogActivityService;
+use Modules\DesaModuleRelease\Http\Controllers\Controller;
+use Modules\DesaModuleRelease\Models\LogActivity;
+use Modules\DesaModuleRelease\Services\User\LogActivityService;
 
 class LogActivityController extends Controller
 {
@@ -19,7 +19,7 @@ class LogActivityController extends Controller
      */
     public function index()
     {
-        $logs = $this->logActivityService->getAllLogsByUser(Auth::guard(desa_module_template_meta('snake').'_web')->user()->id);
+        $logs = $this->logActivityService->getAllLogsByUser(Auth::guard(desa_module_release_meta('snake').'_web')->user()->id);
 
         $data = [
             'logs' => $logs,
@@ -27,7 +27,7 @@ class LogActivityController extends Controller
              'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.user.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.user.index'),
                 ],
                 [
                     'name' => 'Log Activity',
@@ -36,7 +36,7 @@ class LogActivityController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::.web.user.log-activity.index', $data);
+        return view(desa_module_release_meta('kebab').'::.web.user.log-activity.index', $data);
     }
 
     /**
@@ -52,7 +52,7 @@ class LogActivityController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Log Activity Detail',
@@ -61,6 +61,6 @@ class LogActivityController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.user.log-activity.show', $data);
+        return view(desa_module_release_meta('kebab').'::web.user.log-activity.show', $data);
     }   
 }

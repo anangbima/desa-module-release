@@ -1,15 +1,15 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Providers\Concerns;
+namespace Modules\DesaModuleRelease\Providers\Concerns;
 
 trait LoadDatabaseConfig
 {
     protected function loadDatabaseConfig(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../../config/database.php', 'desamoduletemplate.database');
+        $this->mergeConfigFrom(__DIR__ . '/../../../config/database.php', 'desamodulerelease.database');
 
         // Ambil isi config
-        $config = config('desamoduletemplate.database');
+        $config = config('desamodulerelease.database');
 
         // Inject koneksi database baru (misalnya untuk testing)
         if (isset($config['database_connection'], $config['connection'])) {

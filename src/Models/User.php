@@ -1,26 +1,26 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Models;
+namespace Modules\DesaModuleRelease\Models;
 
 use DesaDigitalSupport\RegionManager\Services\RegionService;
-use Modules\DesaModuleTemplate\Models\BaseAuthModel;
-use Modules\DesaModuleTemplate\Traits\HasSlug;
+use Modules\DesaModuleRelease\Models\BaseAuthModel;
+use Modules\DesaModuleRelease\Traits\HasSlug;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail as AuthMustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\DesaModuleTemplate\Database\Factories\UserFactory;
-use Modules\DesaModuleTemplate\Notifications\ResetPasswordNotification;
-use Modules\DesaModuleTemplate\Notifications\VerifyEmailNotification;
-use Modules\DesaModuleTemplate\Traits\HasMedia;
+use Modules\DesaModuleRelease\Database\Factories\UserFactory;
+use Modules\DesaModuleRelease\Notifications\ResetPasswordNotification;
+use Modules\DesaModuleRelease\Notifications\VerifyEmailNotification;
+use Modules\DesaModuleRelease\Traits\HasMedia;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends BaseAuthModel implements AuthMustVerifyEmail, JWTSubject
 {
     use Notifiable, HasRoles, SoftDeletes, MustVerifyEmail, HasSlug, HasMedia;
 
-    protected $guard_name = 'desa_module_template_web';
+    protected $guard_name = 'desa_module_release_web';
     protected $slugSource = 'name';
 
     public function __construct(array $attributes = [])

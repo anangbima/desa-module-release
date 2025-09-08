@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Models;
+namespace Modules\DesaModuleRelease\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
@@ -17,7 +17,7 @@ abstract class BaseAuthModel extends Authenticatable
     {
         parent::__construct($attributes);
 
-        $this->connection = config(desa_module_template_meta('snake').'.database.database_connection', 'desa_module_template');
+        $this->connection = config(desa_module_release_meta('snake').'.database.database_connection', 'desa_module_release');
         $this->table = $this->resolveTableName();
     }
 

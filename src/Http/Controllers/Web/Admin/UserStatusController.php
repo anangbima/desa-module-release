@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\DesaModuleRelease\Http\Controllers\Web\Admin;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Models\User;
-use Modules\DesaModuleTemplate\Services\Admin\UserService;
+use Modules\DesaModuleRelease\Http\Controllers\Controller;
+use Modules\DesaModuleRelease\Models\User;
+use Modules\DesaModuleRelease\Services\Admin\UserService;
 
 class UserStatusController extends Controller
 {
@@ -25,7 +25,7 @@ class UserStatusController extends Controller
             'title' => 'Edit User Status',
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.user.status.edit', $data);
+        return view(desa_module_release_meta('kebab').'::web.admin.user.status.edit', $data);
     }
 
     /**
@@ -37,6 +37,6 @@ class UserStatusController extends Controller
         $status = $request->boolean('status');
         $this->userService->toggleStatus($user->id, $status);
 
-       return redirect()->route(desa_module_template_meta('kebab').'.admin.users.index')->with('success', 'User status updated successfully.');
+       return redirect()->route(desa_module_release_meta('kebab').'.admin.users.index')->with('success', 'User status updated successfully.');
     }
 }

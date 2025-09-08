@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Notifications;
+namespace Modules\DesaModuleRelease\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -31,8 +31,8 @@ class ResetPasswordNotification extends Notification implements ShouldQueue
     public function toMail($notifiable): MailMessage
     {
         $routeName = $this->guard === 'api'
-                            ? desa_module_template_meta('kebab') . '.api.password.reset'
-                            : desa_module_template_meta('kebab') . '.password.reset';
+                            ? desa_module_release_meta('kebab') . '.api.password.reset'
+                            : desa_module_release_meta('kebab') . '.password.reset';
 
         Log::info('ResetPasswordNotification', [
             'routeName' => $routeName,
@@ -52,7 +52,7 @@ class ResetPasswordNotification extends Notification implements ShouldQueue
 
         return (new MailMessage)
             ->subject('Reset Password Akun Desa Digital')
-            ->view(desa_module_template_meta('kebab').'::emails.reset-password', [
+            ->view(desa_module_release_meta('kebab').'::emails.reset-password', [
                 'url' => $url,
                 'user' => $notifiable,
             ]);

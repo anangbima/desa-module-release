@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Requests\Web\Admin;
+namespace Modules\DesaModuleRelease\Http\Requests\Web\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,7 +18,7 @@ class UpdatePermissionRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'unique:desa_module_template.desa_module_template_permissions,name,' . $this->route('permission')->id,
+                'unique:desa_module_release.desa_module_release_permissions,name,' . $this->route('permission')->id,
             ],
             'module_name' => [
                 'string',

@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Models;
+namespace Modules\DesaModuleRelease\Models;
 
-use Modules\DesaModuleTemplate\Database\Factories\LogActivityFactory;
+use Modules\DesaModuleRelease\Database\Factories\LogActivityFactory;
 
 class LogActivity extends BaseModel
 {
@@ -11,7 +11,7 @@ class LogActivity extends BaseModel
      */
     protected function resolveTableName(): string
     {
-        return config(desa_module_template_meta('snake').'.tables.log_activities', 'log_activities');
+        return config(desa_module_release_meta('snake').'.tables.log_activities', 'log_activities');
     }
 
     protected $guarded = ['id'];

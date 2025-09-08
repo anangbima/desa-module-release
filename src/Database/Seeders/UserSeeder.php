@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Database\Seeders;
+namespace Modules\DesaModuleRelease\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Modules\DesaModuleTemplate\Models\User;
-use Modules\DesaModuleTemplate\Models\Media;
+use Modules\DesaModuleRelease\Models\User;
+use Modules\DesaModuleRelease\Models\Media;
 
 class UserSeeder extends Seeder
 {

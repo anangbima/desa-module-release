@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Shared;
+namespace Modules\DesaModuleRelease\Services\Shared;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Modules\DesaModuleTemplate\Models\Media;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\MediaRepositoryInterface;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\MediaUsageRepositoryInterface;
+use Modules\DesaModuleRelease\Models\Media;
+use Modules\DesaModuleRelease\Repositories\Interfaces\MediaRepositoryInterface;
+use Modules\DesaModuleRelease\Repositories\Interfaces\MediaUsageRepositoryInterface;
 
 class MediaService
 {
@@ -44,7 +44,7 @@ class MediaService
     ){
         $modelName = lcfirst(class_basename($model));
         $mediaType = $this->determineMediaType($file);
-        $path = $file->store(desa_module_template_meta('kebab').'/'.$mediaType.'/'.$modelName, $disk);
+        $path = $file->store(desa_module_release_meta('kebab').'/'.$mediaType.'/'.$modelName, $disk);
 
         $media = $this->mediaRepository->create([
             'path' => $path,

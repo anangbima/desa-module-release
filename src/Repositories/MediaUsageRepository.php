@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Repositories;
+namespace Modules\DesaModuleRelease\Repositories;
 
-use Modules\DesaModuleTemplate\Models\MediaUsage;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\MediaUsageRepositoryInterface;
+use Modules\DesaModuleRelease\Models\MediaUsage;
+use Modules\DesaModuleRelease\Repositories\Interfaces\MediaUsageRepositoryInterface;
 
 class MediaUsageRepository implements MediaUsageRepositoryInterface
 {

@@ -1,6 +1,6 @@
 <?php 
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\DesaModuleRelease\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -12,14 +12,14 @@ class InstallCommand extends Command
      * @var string
      */
     protected $signature;
-    protected $description = 'Install Desa Module Template';
+    protected $description = 'Install Desa Module Release';
 
     public function __construct()
     {
         // Set the command signature using the module prefix from the configuration
         // This allows the command to be namespaced under the module's prefix
 
-        $this->signature = 'module:desamoduletemplate:install
+        $this->signature = 'module:desamodulerelease:install
                             {--fresh : Drop all tables first}
                             {--refresh : Reset and re-run all migrations}
                             {--seed : Seed the database}';
@@ -35,25 +35,25 @@ class InstallCommand extends Command
     public function handle()
     {   
         $this->newLine();
-        $this->info('Installing Desa Module Template ...');
+        $this->info('Installing Desa Module Release ...');
         $this->newLine();
     
         // Register the service provider
-        $this->call('module:desamoduletemplate:register-provider');
+        $this->call('module:desamodulerelease:register-provider');
 
         // Add environment variables
-        $this->call('module:desamoduletemplate:add-env');
+        $this->call('module:desamodulerelease:add-env');
         
-        $connection = $this->getEnvValue('DESA_MODULE_TEMPLATE_DB_CONNECTION');
+        $connection = $this->getEnvValue('DESA_MODULE_RELEASE_DB_CONNECTION');
         
         config([
             'database.connections.' . $connection => [
-                'driver' => $this->getEnvValue('DESA_MODULE_TEMPLATE_DB_DRIVER'),
-                'host' => $this->getEnvValue('DESA_MODULE_TEMPLATE_DB_HOST'),
-                'port' => $this->getEnvValue('DESA_MODULE_TEMPLATE_DB_PORT'),
-                'database' => $this->getEnvValue('DESA_MODULE_TEMPLATE_DB_DATABASE'),
-                'username' => $this->getEnvValue('DESA_MODULE_TEMPLATE_DB_USERNAME'),
-                'password' => $this->getEnvValue('DESA_MODULE_TEMPLATE_DB_PASSWORD'),
+                'driver' => $this->getEnvValue('DESA_MODULE_RELEASE_DB_DRIVER'),
+                'host' => $this->getEnvValue('DESA_MODULE_RELEASE_DB_HOST'),
+                'port' => $this->getEnvValue('DESA_MODULE_RELEASE_DB_PORT'),
+                'database' => $this->getEnvValue('DESA_MODULE_RELEASE_DB_DATABASE'),
+                'username' => $this->getEnvValue('DESA_MODULE_RELEASE_DB_USERNAME'),
+                'password' => $this->getEnvValue('DESA_MODULE_RELEASE_DB_PASSWORD'),
                 'charset' => 'utf8mb4',
                 'collation' => 'utf8mb4_unicode_ci',
             ],
@@ -61,7 +61,7 @@ class InstallCommand extends Command
         ]);
 
         if (!$connection) {
-            $this->error('❌ DESA_MODULE_TEMPLATE_DB_CONNECTION not set in .env');
+            $this->error('❌ DESA_MODULE_RELEASE_DB_CONNECTION not set in .env');
             return Command::FAILURE;
         }
             
@@ -69,10 +69,10 @@ class InstallCommand extends Command
         $this->info("Using DB connection: $connection");
 
         if (app()->environment('test')) {
-            $migrationPath = 'modules/desa-module-template/src/Database/Migrations';
+            $migrationPath = 'modules/desa-module-release/src/Database/Migrations';
             $realMigrationPath = base_path($migrationPath);
         } else {
-            $realMigrationPath = realpath('vendor/modules/desa-module-template/src/Database/Migrations');
+            $realMigrationPath = realpath('vendor/modules/desa-module-release/src/Database/Migrations');
             $migrationPath = $realMigrationPath;
         }
 
@@ -108,7 +108,7 @@ class InstallCommand extends Command
         // Optional: seed
         if ($this->option('seed')) {
             $this->call('db:seed', [
-                '--class' => 'Modules\\DesaModuleTemplate\\Database\\Seeders\\DatabaseSeeder',
+                '--class' => 'Modules\\DesaModuleRelease\\Database\\Seeders\\DatabaseSeeder',
                 '--database' => $connection,
                 '--force' => true,
             ]);
@@ -116,10 +116,10 @@ class InstallCommand extends Command
 
         // Update autoload in composer.json
         if (!app()->environment('main')) {
-            $this->call('module:desamoduletemplate:update-autoload');
+            $this->call('module:desamodulerelease:update-autoload');
         }
 
-        $this->info('✅ Desa Module Template installed successfully!');
+        $this->info('✅ Desa Module Release installed successfully!');
     }
 
     /**

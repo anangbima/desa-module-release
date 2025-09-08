@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Repositories;
+namespace Modules\DesaModuleRelease\Repositories;
 
-use Modules\DesaModuleTemplate\Models\Setting;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\SettingRepositoryInterface;
+use Modules\DesaModuleRelease\Models\Setting;
+use Modules\DesaModuleRelease\Repositories\Interfaces\SettingRepositoryInterface;
 
 class SettingRepository implements SettingRepositoryInterface
 {

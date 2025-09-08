@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Admin;
+namespace Modules\DesaModuleRelease\Services\Admin;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Services\Shared\SettingService as SharedSettingService;
+use Modules\DesaModuleRelease\Services\Shared\SettingService as SharedSettingService;
 
 class SettingService extends SharedSettingService
 {

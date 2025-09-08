@@ -1,15 +1,15 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\DesaModuleRelease\Http\Controllers\Web\Admin;
 
 use Maatwebsite\Excel\Excel;
-use Modules\DesaModuleTemplate\Exporters\LogActivityExporter;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Models\LogActivity;
-use Modules\DesaModuleTemplate\Services\Admin\LogActivityService;
-use Modules\DesaModuleTemplate\Services\Admin\RoleService;
-use Modules\DesaModuleTemplate\Services\Shared\ExportService;
-use Modules\DesaModuleTemplate\Services\Shared\LogActivityService as SharedLogActivityService;
+use Modules\DesaModuleRelease\Exporters\LogActivityExporter;
+use Modules\DesaModuleRelease\Http\Controllers\Controller;
+use Modules\DesaModuleRelease\Models\LogActivity;
+use Modules\DesaModuleRelease\Services\Admin\LogActivityService;
+use Modules\DesaModuleRelease\Services\Admin\RoleService;
+use Modules\DesaModuleRelease\Services\Shared\ExportService;
+use Modules\DesaModuleRelease\Services\Shared\LogActivityService as SharedLogActivityService;
 
 class LogActivityController extends Controller
 {
@@ -32,7 +32,7 @@ class LogActivityController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.index'),
                     'icon' => 'icon-[mage--dashboard-chart]',
                 ],
                 [
@@ -45,7 +45,7 @@ class LogActivityController extends Controller
             'roles' => $this->roleService->getAllRoles(),
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.log-activity.index', $data);
+        return view(desa_module_release_meta('kebab').'::web.admin.log-activity.index', $data);
     }
 
     /**
@@ -60,7 +60,7 @@ class LogActivityController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Log Activity Detail',
@@ -70,7 +70,7 @@ class LogActivityController extends Controller
             'log' => $logActivity
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.log-activity.show', $data);
+        return view(desa_module_release_meta('kebab').'::web.admin.log-activity.show', $data);
     }
 
     /**
@@ -94,8 +94,8 @@ class LogActivityController extends Controller
                 after: ['file_name' => $fileName],
             ));
 
-        $fileName = desa_module_template_fileName('log_activities_export', $type);
-        $pdfView = desa_module_template_meta('kebab').'::pdf.log-activities';
+        $fileName = desa_module_release_fileName('log_activities_export', $type);
+        $pdfView = desa_module_release_meta('kebab').'::pdf.log-activities';
 
         return match ($type) {
             'xlsx' => $exporter->exportToExcel(fileName: $fileName, format: Excel::XLSX),

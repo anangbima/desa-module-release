@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Importers;
+namespace Modules\DesaModuleRelease\Importers;
 
 use Illuminate\Http\UploadedFile;
-use Modules\DesaModuleTemplate\Services\Shared\ImportService;
+use Modules\DesaModuleRelease\Services\Shared\ImportService;
 
 abstract class BaseImporter
 {

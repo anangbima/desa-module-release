@@ -1,12 +1,12 @@
-<x-desa-module-template::admin-layout
+<x-desa-module-release::admin-layout
     :title="__($title)"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(desa_module_release_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
 
-    <form action="{{ route(desa_module_template_meta('kebab').'.admin.settings.update') }}" method="POST">
+    <form action="{{ route(desa_module_release_meta('kebab').'.admin.settings.update') }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -69,13 +69,13 @@
 
         {{-- Action buttons --}}
         <div class="mt-8 flex justify-end gap-2">
-            <x-link :intent="'ghost'" href="{{ route(desa_module_template_meta('kebab').'.admin.settings.index') }}">
+            <x-link :intent="'ghost'" href="{{ route(desa_module_release_meta('kebab').'.admin.settings.index') }}">
                 Cancel
             </x-link>
-             <x-link :intent="'primary'" href="{{ route(desa_module_template_meta('kebab').'.admin.settings.index') }}">
+             <x-link :intent="'primary'" href="{{ route(desa_module_release_meta('kebab').'.admin.settings.index') }}">
                 Cancel
             </x-link>
         </div>
     </form>
 
-</x-desa-module-template::admin-layout>
+</x-desa-module-release::admin-layout>

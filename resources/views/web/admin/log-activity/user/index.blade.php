@@ -1,7 +1,7 @@
-<x-desa-module-template::admin-layout
+<x-desa-module-release::admin-layout
     :title="__($title)"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(desa_module_release_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -38,11 +38,11 @@
                     </td>
                     <td>
                         @php
-                            $color = desa_module_template_action_color($log->action);
+                            $color = desa_module_release_action_color($log->action);
                         @endphp
 
                         <x-badge 
-                            text="{{ desa_module_template_format_action($log->action) }}" 
+                            text="{{ desa_module_release_format_action($log->action) }}" 
                             size="sm" 
                             color="{{ $color }}"  />
                     </td>
@@ -75,7 +75,7 @@
                         >
                             <div class="p-2">
                                 <a 
-                                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.show', $log->id) }}"
+                                    href="{{ route(desa_module_release_meta('kebab').'.admin.logs.show', $log->id) }}"
                                     class="flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
                                 >
                                     <span class="icon-[proicons--eye] size-5"></span>
@@ -89,4 +89,4 @@
         </x-table-default>
     </div>
 
-</x-desa-module-template::admin-layout>
+</x-desa-module-release::admin-layout>

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Admin;
+namespace Modules\DesaModuleRelease\Services\Admin;
 
 use Illuminate\Support\Collection;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\LogActivityRepositoryInterface;
-use Modules\DesaModuleTemplate\Services\Shared\LogActivityService as SharedLogActivityService;
+use Modules\DesaModuleRelease\Repositories\Interfaces\LogActivityRepositoryInterface;
+use Modules\DesaModuleRelease\Services\Shared\LogActivityService as SharedLogActivityService;
 
 class LogActivityService extends SharedLogActivityService
 {

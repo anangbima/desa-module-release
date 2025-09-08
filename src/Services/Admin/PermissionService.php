@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Admin;
+namespace Modules\DesaModuleRelease\Services\Admin;
 
-use Modules\DesaModuleTemplate\Repositories\Interfaces\PermissionRepositoryInterface;
-use Modules\DesaModuleTemplate\Services\Shared\LogActivityService;
+use Modules\DesaModuleRelease\Repositories\Interfaces\PermissionRepositoryInterface;
+use Modules\DesaModuleRelease\Services\Shared\LogActivityService;
 
 class PermissionService
 {

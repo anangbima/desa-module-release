@@ -2,16 +2,16 @@
 
 use Illuminate\Support\Str;
 
-if (!function_exists('desa_module_template_format_action')) {
-    function desa_module_template_format_action(string $action): string
+if (!function_exists('desa_module_release_format_action')) {
+    function desa_module_release_format_action(string $action): string
     {
         return Str::of($action)
             ->replace('_', ' ')
             ->title();
     }
 }
-if (!function_exists('desa_module_template_action_color')) {
-    function desa_module_template_action_color(string $action): string
+if (!function_exists('desa_module_release_action_color')) {
+    function desa_module_release_action_color(string $action): string
     {
         return match (true) {
             Str::startsWith($action, 'create') => 'success-light',

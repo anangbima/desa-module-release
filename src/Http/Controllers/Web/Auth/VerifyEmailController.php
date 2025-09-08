@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Auth;
+namespace Modules\DesaModuleRelease\Http\Controllers\Web\Auth;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationService;
+use Modules\DesaModuleRelease\Http\Controllers\Controller;
+use Modules\DesaModuleRelease\Services\Auth\AuthenticationService;
 
 class VerifyEmailController extends Controller
 {
@@ -19,6 +19,6 @@ class VerifyEmailController extends Controller
     {
         $this->authService->verifyEmail($request->route('user'));
 
-        return redirect()->route(desa_module_template_meta('kebab').'.login');
+        return redirect()->route(desa_module_release_meta('kebab').'.login');
     }
 }

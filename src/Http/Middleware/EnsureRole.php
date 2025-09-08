@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Middleware;
+namespace Modules\DesaModuleRelease\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EnsureRole
 {
-    public function handle(Request $request, Closure $next, $guard = 'desa_module_template_web', ...$roles): Response
+    public function handle(Request $request, Closure $next, $guard = 'desa_module_release_web', ...$roles): Response
     {
         $user = Auth::guard($guard)->user();
 

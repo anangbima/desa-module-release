@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Requests\Web\Auth;
+namespace Modules\DesaModuleRelease\Http\Requests\Web\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 

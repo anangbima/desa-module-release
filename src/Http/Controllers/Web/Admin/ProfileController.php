@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\DesaModuleRelease\Http\Controllers\Web\Admin;
 
 use DesaDigitalSupport\RegionManager\Services\RegionService;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Shared\UpdateProfileRequest;
-use Modules\DesaModuleTemplate\Services\Shared\ProfileService;
+use Modules\DesaModuleRelease\Http\Controllers\Controller;
+use Modules\DesaModuleRelease\Http\Requests\Web\Shared\UpdateProfileRequest;
+use Modules\DesaModuleRelease\Services\Shared\ProfileService;
 
 class ProfileController extends Controller
 {
@@ -19,16 +19,16 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $role = desa_module_template_auth_user()->role;
+        $role = desa_module_release_auth_user()->role;
 
         $data = [
             'title' => 'Profile',
-            'user' => desa_module_template_auth_user(),
+            'user' => desa_module_release_auth_user(),
             'role' => $role,
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Profile',
@@ -38,8 +38,8 @@ class ProfileController extends Controller
         ];
 
 
-        // return view(desa_module_template_meta('kebab') . '::web.admin.profile.index', $data);
-        return view(desa_module_template_meta('kebab') . '::web.shared.profile.index', $data);
+        // return view(desa_module_release_meta('kebab') . '::web.admin.profile.index', $data);
+        return view(desa_module_release_meta('kebab') . '::web.shared.profile.index', $data);
     }
 
     /**
@@ -49,7 +49,7 @@ class ProfileController extends Controller
     {
         $data = [
             'title' => 'Edit Profile',
-            'user' => desa_module_template_auth_user(),
+            'user' => desa_module_release_auth_user(),
             'provinceOptions' => $this->regionService->getProvinces()->map(function ($province) {
                 return [
                     'value' => $province->code,
@@ -59,7 +59,7 @@ class ProfileController extends Controller
         ];
         // dd($data['provinceOptions']);
 
-        return view(desa_module_template_meta('kebab') . '::web.admin.profile.edit', $data);
+        return view(desa_module_release_meta('kebab') . '::web.admin.profile.edit', $data);
     }
 
     /**
@@ -67,10 +67,10 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request)
     {
-        $user = desa_module_template_auth_user();
+        $user = desa_module_release_auth_user();
 
         $this->profileService->updateProfile($user->id, $request->all());
 
-        return redirect()->route(desa_module_template_meta('kebab') . '.admin.profile.index')->with('success', 'Profile updated successfully.');
+        return redirect()->route(desa_module_release_meta('kebab') . '.admin.profile.index')->with('success', 'Profile updated successfully.');
     }
 }

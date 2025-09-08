@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\DesaModuleRelease\Console\Commands;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -17,11 +17,11 @@ class MakeComponentCommand extends Command
     /**
      * Description of the command.
      */
-    protected $description = 'Generate a new component file in the Desa Module Template module';
+    protected $description = 'Generate a new component file in the Desa Module Release module';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-component
+        $this->signature = 'module:desamodulerelease:make-component
             {name : Controller name with optional path, e.g. ProductComponent}';
 
         parent::__construct();
@@ -36,8 +36,8 @@ class MakeComponentCommand extends Command
         $subPath = implode('/', array_map([Str::class, 'studly'], $pathParts));
         $namespaceSuffix = implode('\\', array_map([Str::class, 'studly'], $pathParts));
 
-        $namespace = 'Modules\\DesaModuleTemplate\\View\\Components' . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
-        $basePath = base_path('modules/desa-module-template/src/View/Components' . ($subPath ? '/' . $subPath : ''));
+        $namespace = 'Modules\\DesaModuleRelease\\View\\Components' . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
+        $basePath = base_path('modules/desa-module-release/src/View/Components' . ($subPath ? '/' . $subPath : ''));
         $filePath = "$basePath/{$className}.php";
 
         if (File::exists($filePath)) {

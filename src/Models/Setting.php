@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Models;
+namespace Modules\DesaModuleRelease\Models;
 
-use Modules\DesaModuleTemplate\Database\Factories\SettingFactory;
+use Modules\DesaModuleRelease\Database\Factories\SettingFactory;
 
 class Setting extends BaseModel
 {
@@ -11,7 +11,7 @@ class Setting extends BaseModel
      */
     protected function resolveTableName(): string
     {
-        return config('desa_module_template.tables.settings', 'settings');
+        return config('desa_module_release.tables.settings', 'settings');
     }
 
     protected $guarded = ['id'];

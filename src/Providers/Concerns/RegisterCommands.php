@@ -1,28 +1,28 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Providers\Concerns;
+namespace Modules\DesaModuleRelease\Providers\Concerns;
 
-use Modules\DesaModuleTemplate\Console\Commands\AddEnvCommand;
-use Modules\DesaModuleTemplate\Console\Commands\InstallCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeComponentCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeControllerCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeExporterCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeFactoryCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeImporterCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeMiddlewareCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeModelCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeNotificationCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeRepositoryCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeRepositoryInterfaceCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeRequestCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeResourceCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeSeederCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeServiceCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MakeTraitCommand;
-use Modules\DesaModuleTemplate\Console\Commands\MigrateCommand;
-use Modules\DesaModuleTemplate\Console\Commands\RegisterProviderCommand;
-use Modules\DesaModuleTemplate\Console\Commands\RouteListCommand;
-use Modules\DesaModuleTemplate\Console\Commands\UpdateAutoloadCommand;
+use Modules\DesaModuleRelease\Console\Commands\AddEnvCommand;
+use Modules\DesaModuleRelease\Console\Commands\InstallCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeComponentCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeControllerCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeExporterCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeFactoryCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeImporterCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeMiddlewareCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeModelCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeNotificationCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeRepositoryCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeRepositoryInterfaceCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeRequestCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeResourceCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeSeederCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeServiceCommand;
+use Modules\DesaModuleRelease\Console\Commands\MakeTraitCommand;
+use Modules\DesaModuleRelease\Console\Commands\MigrateCommand;
+use Modules\DesaModuleRelease\Console\Commands\RegisterProviderCommand;
+use Modules\DesaModuleRelease\Console\Commands\RouteListCommand;
+use Modules\DesaModuleRelease\Console\Commands\UpdateAutoloadCommand;
 
 trait RegisterCommands
 {

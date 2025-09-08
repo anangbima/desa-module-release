@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\DesaModuleRelease\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -14,11 +14,11 @@ class MakeServiceCommand extends Command
      * @var string
      */
     protected $signature;
-    protected $description = 'Generate a new service class in the Desa Module Template module';
+    protected $description = 'Generate a new service class in the Desa Module Release module';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-service
+        $this->signature = 'module:desamodulerelease:make-service
             {name : Service class name with optional path, e.g. Admin/ProductService}';
 
         parent::__construct();
@@ -34,8 +34,8 @@ class MakeServiceCommand extends Command
         $subPath = implode('/', array_map([Str::class, 'studly'], $pathParts));
         $namespaceSuffix = implode('\\', array_map([Str::class, 'studly'], $pathParts));
 
-        $namespace = "Modules\\DesaModuleTemplate\\Services" . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
-        $basePath = base_path('Modules/desa-module-template/src/Services' . ($subPath ? '/' . $subPath : ''));
+        $namespace = "Modules\\DesaModuleRelease\\Services" . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
+        $basePath = base_path('Modules/desa-module-release/src/Services' . ($subPath ? '/' . $subPath : ''));
         $filePath = "$basePath/{$className}.php";
 
         // Buat folder jika belum ada

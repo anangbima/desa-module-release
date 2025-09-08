@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth;
+namespace Modules\DesaModuleRelease\Http\Controllers\Api\Internal\Auth;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Api\Auth\ConfirmablePasswordRequest;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationApiService;
-use Modules\DesaModuleTemplate\Services\Shared\ApiResponseService;
+use Modules\DesaModuleRelease\Http\Controllers\Controller;
+use Modules\DesaModuleRelease\Http\Requests\Api\Auth\ConfirmablePasswordRequest;
+use Modules\DesaModuleRelease\Services\Auth\AuthenticationApiService;
+use Modules\DesaModuleRelease\Services\Shared\ApiResponseService;
 
 class ConfirmablePasswordController extends Controller
 {

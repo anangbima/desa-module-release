@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\User;
+namespace Modules\DesaModuleRelease\Services\User;
 
-use Modules\DesaModuleTemplate\Services\Shared\ProfileService as SharedProfileService;
+use Modules\DesaModuleRelease\Services\Shared\ProfileService as SharedProfileService;
 
 class ProfileService extends SharedProfileService
 {

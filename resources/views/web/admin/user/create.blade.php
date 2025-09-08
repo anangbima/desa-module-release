@@ -1,7 +1,7 @@
-<x-desa-module-template::admin-layout
+<x-desa-module-release::admin-layout
     :title="__($title)"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(desa_module_release_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >   
@@ -9,7 +9,7 @@
         <div class="w-full max-w-4xl px-4 sm:px-6 md:px-8 py-8">
             {{-- Form section --}}
             <form 
-                action="{{ route(desa_module_template_meta('kebab').'.admin.users.store') }}" 
+                action="{{ route(desa_module_release_meta('kebab').'.admin.users.store') }}" 
                 method="POST" 
                 class="space-y-6"
             >
@@ -83,7 +83,7 @@
                     <x-link 
                         intent="secondary"
                         size="md"
-                        href="{{ route(desa_module_template_meta('kebab').'.admin.users.index') }}" 
+                        href="{{ route(desa_module_release_meta('kebab').'.admin.users.index') }}" 
                         class="w-full sm:w-auto text-center"
                     >
                         Cancel
@@ -102,4 +102,4 @@
         </div>
     </div>
 
-</x-desa-module-template::admin-layout>
+</x-desa-module-release::admin-layout>

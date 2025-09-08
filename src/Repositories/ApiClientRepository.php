@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Repositories;
+namespace Modules\DesaModuleRelease\Repositories;
 
-use Modules\DesaModuleTemplate\Models\ApiClient;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\ApiClientRepositoryInterface;
+use Modules\DesaModuleRelease\Models\ApiClient;
+use Modules\DesaModuleRelease\Repositories\Interfaces\ApiClientRepositoryInterface;
 
 class ApiClientRepository implements ApiClientRepositoryInterface
 {

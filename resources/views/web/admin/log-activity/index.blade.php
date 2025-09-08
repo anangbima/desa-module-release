@@ -1,7 +1,7 @@
-<x-desa-module-template::admin-layout
+<x-desa-module-release::admin-layout
     :title="__($title)"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(desa_module_release_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -64,11 +64,11 @@
                     </td>
                     <td>
                         @php
-                            $color = desa_module_template_action_color($log->action);
+                            $color = desa_module_release_action_color($log->action);
                         @endphp
 
                         <x-badge 
-                            text="{{ desa_module_template_format_action($log->action) }}" 
+                            text="{{ desa_module_release_format_action($log->action) }}" 
                             size="sm" 
                             color="{{ $color }}"  />
                     </td>
@@ -100,7 +100,7 @@
                         >
                             <div class="p-2">
                                 <a 
-                                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.show', $log->id) }}"
+                                    href="{{ route(desa_module_release_meta('kebab').'.admin.logs.show', $log->id) }}"
                                     class="flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
                                 >
                                     <span class="icon-[proicons--eye] size-5"></span>
@@ -128,7 +128,7 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <a 
-                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.export', ['type' => 'xlsx']) }}" 
+                    href="{{ route(desa_module_release_meta('kebab').'.admin.logs.export', ['type' => 'xlsx']) }}" 
                     class="bg-white dark:bg-slate-900 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                     <span class="icon-[mdi--microsoft-excel] text-green-600 mr-2"></span>
@@ -136,7 +136,7 @@
                 </a>
 
                 <a 
-                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.export', ['type' => 'csv']) }}" 
+                    href="{{ route(desa_module_release_meta('kebab').'.admin.logs.export', ['type' => 'csv']) }}" 
                     class="bg-white dark:bg-slate-900 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                     <span class="icon-[mdi--file-delimited] text-blue-600 mr-2"></span>
@@ -144,7 +144,7 @@
                 </a>
 
                 <a 
-                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.export', ['type' => 'pdf']) }}" 
+                    href="{{ route(desa_module_release_meta('kebab').'.admin.logs.export', ['type' => 'pdf']) }}" 
                     class="bg-white dark:bg-slate-900 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                     <span class="icon-[mdi--file-pdf-box] text-red-600 mr-2"></span>
@@ -152,7 +152,7 @@
                 </a>
 
                 <a 
-                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.export', ['type' => 'docx']) }}" 
+                    href="{{ route(desa_module_release_meta('kebab').'.admin.logs.export', ['type' => 'docx']) }}" 
                     class="bg-white dark:bg-slate-900 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                     <span class="icon-[mdi--microsoft-word] text-blue-700 mr-2"></span>
@@ -160,7 +160,7 @@
                 </a>
 
                 <a 
-                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.export', ['type' => 'json']) }}" 
+                    href="{{ route(desa_module_release_meta('kebab').'.admin.logs.export', ['type' => 'json']) }}" 
                     class="bg-white dark:bg-slate-900 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                     <span class="icon-[mdi--code-json] text-yellow-600 mr-2"></span>
@@ -176,4 +176,4 @@
         </x-slot>
     </x-modal>
 
-</x-desa-module-template::admin-layout>
+</x-desa-module-release::admin-layout>

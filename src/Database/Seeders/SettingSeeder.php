@@ -1,16 +1,16 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Database\Seeders;
+namespace Modules\DesaModuleRelease\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\DesaModuleTemplate\Models\Setting;
+use Modules\DesaModuleRelease\Models\Setting;
 
 class SettingSeeder extends Seeder
 {
     public function run(): void
     {
         $generalSettings = [
-            ['key' => 'site_name', 'value' => 'Desa Module Template', 'type' => 'string'],
+            ['key' => 'site_name', 'value' => 'Desa Module Release', 'type' => 'string'],
             ['key' => 'maintenance_mode', 'value' => false, 'type' => 'boolean'],
             ['key' => 'max_upload_size', 'value' => 2048, 'type' => 'integer'],
             ['key' => 'supported_languages', 'value' => json_encode(['en', 'fr', 'es']), 'type' => 'array'],
@@ -18,9 +18,9 @@ class SettingSeeder extends Seeder
         ];
 
         $socialMediaSettings = [
-            ['key' => 'facebook_url', 'value' => 'https://facebook.com/desamoduletemplate', 'type' => 'string'],
-            ['key' => 'twitter_handle', 'value' => '@desamoduletemplate', 'type' => 'string'],
-            ['key' => 'instagram_url', 'value' => 'https://instagram.com/desamoduletemplate', 'type' => 'string'],
+            ['key' => 'facebook_url', 'value' => 'https://facebook.com/desamodulerelease', 'type' => 'string'],
+            ['key' => 'twitter_handle', 'value' => '@desamodulerelease', 'type' => 'string'],
+            ['key' => 'instagram_url', 'value' => 'https://instagram.com/desamodulerelease', 'type' => 'string'],
         ];
 
         $logoSettings = [

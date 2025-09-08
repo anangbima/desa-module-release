@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Database\Factories;
+namespace Modules\DesaModuleRelease\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\DesaModuleTemplate\Models\Setting;
+use Modules\DesaModuleRelease\Models\Setting;
 
 class SettingFactory extends Factory
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\View\Components;
+namespace Modules\DesaModuleRelease\View\Components;
 
 use Illuminate\View\Component;
 
@@ -14,6 +14,6 @@ class AdminLayout extends Component
 
     public function render()
     {
-        return view(desa_module_template_meta('kebab') . '::layouts.admin');
+        return view(desa_module_release_meta('kebab') . '::layouts.admin');
     }
 }

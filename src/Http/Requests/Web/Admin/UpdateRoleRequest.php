@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Requests\Web\Admin;
+namespace Modules\DesaModuleRelease\Http\Requests\Web\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,11 +18,11 @@ class UpdateRoleRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'unique:desa_module_template.desa_module_template_roles,name,' . $this->route('role')->id,
+                'unique:desa_module_release.desa_module_release_roles,name,' . $this->route('role')->id,
             ],
             'permissions' => [
                 'array',
-                'exists:desa_module_template.desa_module_template_permissions,id',
+                'exists:desa_module_release.desa_module_release_permissions,id',
             ],
         ];
     }

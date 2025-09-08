@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Providers\Concerns;
+namespace Modules\DesaModuleRelease\Providers\Concerns;
 
-use Modules\DesaModuleTemplate\Http\Middleware\CheckUserStatus;
-use Modules\DesaModuleTemplate\Http\Middleware\EnsureEmailIsVerified;
-use Modules\DesaModuleTemplate\Http\Middleware\EnsureRole;
-use Modules\DesaModuleTemplate\Http\Middleware\RedirectIfAuthenticated;
-use Modules\DesaModuleTemplate\Http\Middleware\VerifyApiClient;
+use Modules\DesaModuleRelease\Http\Middleware\CheckUserStatus;
+use Modules\DesaModuleRelease\Http\Middleware\EnsureEmailIsVerified;
+use Modules\DesaModuleRelease\Http\Middleware\EnsureRole;
+use Modules\DesaModuleRelease\Http\Middleware\RedirectIfAuthenticated;
+use Modules\DesaModuleRelease\Http\Middleware\VerifyApiClient;
 
 trait RegisterMiddlewares
 {
@@ -14,10 +14,10 @@ trait RegisterMiddlewares
     {
         $router = app('router');
 
-        $router->aliasMiddleware('desa_module_template.role', EnsureRole::class);
-        $router->aliasMiddleware('desa_module_template.guest', RedirectIfAuthenticated::class);
-        $router->aliasMiddleware('desa_module_template.verified', EnsureEmailIsVerified::class);
-        $router->aliasMiddleware('desa_module_template.status', CheckUserStatus::class);
-        $router->aliasMiddleware('desa_module_template.verify_api_client', VerifyApiClient::class);
+        $router->aliasMiddleware('desa_module_release.role', EnsureRole::class);
+        $router->aliasMiddleware('desa_module_release.guest', RedirectIfAuthenticated::class);
+        $router->aliasMiddleware('desa_module_release.verified', EnsureEmailIsVerified::class);
+        $router->aliasMiddleware('desa_module_release.status', CheckUserStatus::class);
+        $router->aliasMiddleware('desa_module_release.verify_api_client', VerifyApiClient::class);
     }
 }

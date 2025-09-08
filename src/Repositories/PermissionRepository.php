@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Repositories;
+namespace Modules\DesaModuleRelease\Repositories;
 
-use Modules\DesaModuleTemplate\Models\Permission;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\PermissionRepositoryInterface;
-use Modules\DesaModuleTemplate\Traits\HasRelationable;
+use Modules\DesaModuleRelease\Models\Permission;
+use Modules\DesaModuleRelease\Repositories\Interfaces\PermissionRepositoryInterface;
+use Modules\DesaModuleRelease\Traits\HasRelationable;
 
 class PermissionRepository implements PermissionRepositoryInterface
 {

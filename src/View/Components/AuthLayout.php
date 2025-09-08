@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\View\Components;
+namespace Modules\DesaModuleRelease\View\Components;
 
 use Illuminate\View\Component;
-use Modules\DesaModuleTemplate\Helpers\ModuleMeta;
+use Modules\DesaModuleRelease\Helpers\ModuleMeta;
 
 class AuthLayout extends Component
 {
@@ -15,6 +15,6 @@ class AuthLayout extends Component
     }
     public function render()
     {
-        return view(desa_module_template_meta('kebab') . '::layouts.auth');
+        return view(desa_module_release_meta('kebab') . '::layouts.auth');
     }
 }

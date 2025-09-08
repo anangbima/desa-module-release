@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Requests\Web\Admin;
+namespace Modules\DesaModuleRelease\Http\Requests\Web\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,7 +18,7 @@ class StorePermissionRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'unique:desa_module_template.desa_module_template_permissions,name',
+                'unique:desa_module_release.desa_module_release_permissions,name',
             ],
             'module_name' => [
                 'string',

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers;
+namespace Modules\DesaModuleRelease\Http\Controllers;
 
 abstract class Controller
 {

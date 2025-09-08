@@ -1,6 +1,6 @@
 <?php 
 
-namespace Modules\DesaModuleTemplate\Services\Shared;
+namespace Modules\DesaModuleRelease\Services\Shared;
 
 use Illuminate\Support\Str;
 

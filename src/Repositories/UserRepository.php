@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Repositories;
+namespace Modules\DesaModuleRelease\Repositories;
 
-use Modules\DesaModuleTemplate\Models\User;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\UserRepositoryInterface;
-use Modules\DesaModuleTemplate\Traits\HasRelationable;
+use Modules\DesaModuleRelease\Models\User;
+use Modules\DesaModuleRelease\Repositories\Interfaces\UserRepositoryInterface;
+use Modules\DesaModuleRelease\Traits\HasRelationable;
 
 class UserRepository implements UserRepositoryInterface
 {

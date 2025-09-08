@@ -1,10 +1,10 @@
 <?php 
 
-namespace Modules\DesaModuleTemplate\Importers;
+namespace Modules\DesaModuleRelease\Importers;
 
 use Illuminate\Http\UploadedFile;
-use Modules\DesaModuleTemplate\Services\Admin\UserService;
-use Modules\DesaModuleTemplate\Services\Shared\ImportService;
+use Modules\DesaModuleRelease\Services\Admin\UserService;
+use Modules\DesaModuleRelease\Services\Shared\ImportService;
 
 class UserImporter extends BaseImporter
 {

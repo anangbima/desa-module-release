@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\DesaModuleRelease\Http\Controllers\Web\Admin;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Admin\StoreRoleRequest;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Admin\UpdateRoleRequest;
-use Modules\DesaModuleTemplate\Models\Role;
-use Modules\DesaModuleTemplate\Services\Admin\PermissionService;
-use Modules\DesaModuleTemplate\Services\Admin\RoleService;
+use Modules\DesaModuleRelease\Http\Controllers\Controller;
+use Modules\DesaModuleRelease\Http\Requests\Web\Admin\StoreRoleRequest;
+use Modules\DesaModuleRelease\Http\Requests\Web\Admin\UpdateRoleRequest;
+use Modules\DesaModuleRelease\Models\Role;
+use Modules\DesaModuleRelease\Services\Admin\PermissionService;
+use Modules\DesaModuleRelease\Services\Admin\RoleService;
 
 class RoleController extends Controller
 {
@@ -29,7 +29,7 @@ class RoleController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Roles',
@@ -39,7 +39,7 @@ class RoleController extends Controller
             'roles' => $roles,
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.role.index', $data);
+        return view(desa_module_release_meta('kebab').'::web.admin.role.index', $data);
     }
 
     /**
@@ -52,11 +52,11 @@ class RoleController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Roles',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.roles.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.roles.index'),
                 ],
                 [
                     'name' => 'Add New Role',
@@ -66,7 +66,7 @@ class RoleController extends Controller
             'availablePermissions' => $this->permissionService->getAllPermissions(),
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.role.create', $data);
+        return view(desa_module_release_meta('kebab').'::web.admin.role.create', $data);
     }
 
     /**
@@ -76,7 +76,7 @@ class RoleController extends Controller
     {
         $this->roleService->createRole($request->validated());
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.roles.index')->with('success', 'Role created successfully.');
+        return redirect()->route(desa_module_release_meta('kebab').'.admin.roles.index')->with('success', 'Role created successfully.');
     }
 
     /**
@@ -92,11 +92,11 @@ class RoleController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Roles',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.roles.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.roles.index'),
                 ],
                 [
                     'name' => $role->name,
@@ -105,7 +105,7 @@ class RoleController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.role.show', $data);
+        return view(desa_module_release_meta('kebab').'::web.admin.role.show', $data);
     }
 
     /**
@@ -120,11 +120,11 @@ class RoleController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Roles',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.roles.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.admin.roles.index'),
                 ],
                 [
                     'name' => 'Edit Role',
@@ -135,7 +135,7 @@ class RoleController extends Controller
             'availablePermissions' => $this->permissionService->getAllPermissions(),
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.role.edit', $data);
+        return view(desa_module_release_meta('kebab').'::web.admin.role.edit', $data);
     }
 
     /**
@@ -145,7 +145,7 @@ class RoleController extends Controller
     {
         $this->roleService->updateRole($role->id, $request->validated());
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.roles.index')->with('success', 'Role updated successfully.');
+        return redirect()->route(desa_module_release_meta('kebab').'.admin.roles.index')->with('success', 'Role updated successfully.');
     }
 
     /**
@@ -155,6 +155,6 @@ class RoleController extends Controller
     {
         $this->roleService->deleteRole($role->id);
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.roles.index')->with('success', 'Role deleted successfully.');
+        return redirect()->route(desa_module_release_meta('kebab').'.admin.roles.index')->with('success', 'Role deleted successfully.');
     }
 }

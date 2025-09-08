@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Database\Seeders;
+namespace Modules\DesaModuleRelease\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\DesaModuleTemplate\Models\LogActivity;
+use Modules\DesaModuleRelease\Models\LogActivity;
 
 class LogActivitySeeder extends Seeder
 {

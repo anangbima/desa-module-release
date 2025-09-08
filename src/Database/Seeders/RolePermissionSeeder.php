@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Database\Seeders;
+namespace Modules\DesaModuleRelease\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\DesaModuleTemplate\Models\Permission;
-use Modules\DesaModuleTemplate\Models\Role;
+use Modules\DesaModuleRelease\Models\Permission;
+use Modules\DesaModuleRelease\Models\Role;
 
 class RolePermissionSeeder extends Seeder
 {
@@ -16,7 +16,7 @@ class RolePermissionSeeder extends Seeder
         foreach ($roles as $roleName) {
             Role::firstOrCreate([
                 'name' => $roleName,
-                'guard_name' => 'desa_module_template_web',
+                'guard_name' => 'desa_module_release_web',
             ]);
         }
 
@@ -43,7 +43,7 @@ class RolePermissionSeeder extends Seeder
         foreach ($permissions as $permission) {
             Permission::firstOrCreate([
                 'name' => $permission['name'],
-                'guard_name' => 'desa_module_template_web',
+                'guard_name' => 'desa_module_release_web',
             ], [
                 'module_name' => $permission['module_name'],
             ]);

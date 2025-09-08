@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Database\Factories;
+namespace Modules\DesaModuleRelease\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use Modules\DesaModuleTemplate\Models\User;
+use Modules\DesaModuleRelease\Models\User;
 
 class UserFactory extends Factory
 {

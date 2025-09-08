@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Auth;
+namespace Modules\DesaModuleRelease\Http\Controllers\Web\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Auth\PasswordResetLinkRequest;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationService;
+use Modules\DesaModuleRelease\Http\Controllers\Controller;
+use Modules\DesaModuleRelease\Http\Requests\Web\Auth\PasswordResetLinkRequest;
+use Modules\DesaModuleRelease\Services\Auth\AuthenticationService;
 
 class PasswordResetLinkController extends Controller
 {
@@ -23,7 +23,7 @@ class PasswordResetLinkController extends Controller
             'title' => 'Forgot Password',
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.auth.forgot-password', $data);
+        return view(desa_module_release_meta('kebab').'::web.auth.forgot-password', $data);
     }
 
     /**

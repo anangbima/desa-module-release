@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Shared;
+namespace Modules\DesaModuleRelease\Services\Shared;
 
-use Modules\DesaModuleTemplate\Repositories\Interfaces\SettingRepositoryInterface;
+use Modules\DesaModuleRelease\Repositories\Interfaces\SettingRepositoryInterface;
 
 class SettingService
 {

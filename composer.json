@@ -1,11 +1,11 @@
 {
-    "name": "modules/desa-module-template",
-    "description": "Modul Desa Module Template untuk manajemen fitur terkait Desa Module Template di sistem desa digital.",
+    "name": "modules/desa-module-release",
+    "description": "Modul Desa Module Release untuk manajemen fitur terkait Desa Module Release di sistem desa digital.",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Modules\\DesaModuleTemplate\\": "src/"
+            "Modules\\DesaModuleRelease\\": "src/"
         }
     },
     "exclude-from-classmap": [
@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\DesaModuleTemplate\\Providers\\ModuleServiceProvider"
+                "Modules\\DesaModuleRelease\\Providers\\ModuleServiceProvider"
             ]
         }
     },

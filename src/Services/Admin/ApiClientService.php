@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Admin;
+namespace Modules\DesaModuleRelease\Services\Admin;
 
-use Modules\DesaModuleTemplate\Services\Shared\ApiClientService as SharedApiClientService;
+use Modules\DesaModuleRelease\Services\Shared\ApiClientService as SharedApiClientService;
 use Illuminate\Support\Str;
 
 class ApiClientService extends SharedApiClientService

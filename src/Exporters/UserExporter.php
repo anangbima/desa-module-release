@@ -1,9 +1,9 @@
 <?php 
 
-namespace Modules\DesaModuleTemplate\Exporters;
+namespace Modules\DesaModuleRelease\Exporters;
 
 use Illuminate\Support\Collection;
-use Modules\DesaModuleTemplate\Services\Shared\ExportService;
+use Modules\DesaModuleRelease\Services\Shared\ExportService;
 
 class UserExporter extends BaseExporter
 {

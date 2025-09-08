@@ -1,6 +1,6 @@
 <?php 
 
-namespace Modules\DesaModuleTemplate\Services\Auth;
+namespace Modules\DesaModuleRelease\Services\Auth;
 
 use Carbon\Carbon;
 use Exception;
@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Auth\LoginRequest;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\UserRepositoryInterface;
+use Modules\DesaModuleRelease\Http\Requests\Web\Auth\LoginRequest;
+use Modules\DesaModuleRelease\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Support\Str;
-use Modules\DesaModuleTemplate\Notifications\OtpNotification;
-use Modules\DesaModuleTemplate\Services\Shared\LogActivityService;
+use Modules\DesaModuleRelease\Notifications\OtpNotification;
+use Modules\DesaModuleRelease\Services\Shared\LogActivityService;
 
 class AuthenticationService
 {
@@ -36,7 +36,7 @@ class AuthenticationService
         $request->authenticate();
         $request->session()->regenerate();
 
-        $user = Auth::guard(desa_module_template_meta('snake').'_web')->user();
+        $user = Auth::guard(desa_module_release_meta('snake').'_web')->user();
 
         $otpConfig = config('auth.otp');
         $otpEnabled = $otpConfig['enabled'] ?? false;
@@ -82,7 +82,7 @@ class AuthenticationService
 
         Notification::send($user, new OtpNotification($otp));
 
-        Auth::guard(desa_module_template_meta('snake').'_web')->logout();
+        Auth::guard(desa_module_release_meta('snake').'_web')->logout();
     }
 
     /**
@@ -100,7 +100,7 @@ class AuthenticationService
 
         $user = $this->userRepository->find($userId);
 
-        Auth::guard(desa_module_template_meta('snake').'_web')->login($user);
+        Auth::guard(desa_module_release_meta('snake').'_web')->login($user);
 
         session()->forget('otp_pending_user_id');
 
@@ -161,7 +161,7 @@ class AuthenticationService
      */
     public function logout(Request $request)
     {
-        $user = Auth::guard(desa_module_template_meta('snake').'_web')->user();
+        $user = Auth::guard(desa_module_release_meta('snake').'_web')->user();
 
         if ($user) {
             // Log activity
@@ -185,7 +185,7 @@ class AuthenticationService
             );
         }
 
-        Auth::guard(desa_module_template_meta('snake').'_web')->logout();
+        Auth::guard(desa_module_release_meta('snake').'_web')->logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
@@ -214,7 +214,7 @@ class AuthenticationService
     
         event(new Registered($userCreated));
     
-        Auth::guard(desa_module_template_meta('snake').'_web')->login($userCreated);
+        Auth::guard(desa_module_release_meta('snake').'_web')->login($userCreated);
 
         // Log activity
         $this->logActivityService->log(
@@ -248,7 +248,7 @@ class AuthenticationService
      */
     public function changePassword(array $data)
     {
-        $user = Auth::guard(desa_module_template_meta('snake').'_web')->user();
+        $user = Auth::guard(desa_module_release_meta('snake').'_web')->user();
 
         if (!Hash::check($data['current_password'], $user->password)) {
             throw ValidationException::withMessages([
@@ -280,7 +280,7 @@ class AuthenticationService
             ]
         );
 
-        Auth::guard(desa_module_template_meta('snake').'_web')->logout();
+        Auth::guard(desa_module_release_meta('snake').'_web')->logout();
 
         session()->invalidate();
         session()->regenerateToken();
@@ -291,9 +291,9 @@ class AuthenticationService
      */
     public function confirmPassword(string $password)
     {
-        $user = Auth::guard(desa_module_template_meta('snake').'_web')->user();
+        $user = Auth::guard(desa_module_release_meta('snake').'_web')->user();
 
-        if (!Auth::guard(desa_module_template_meta('snake').'_web')->validate([
+        if (!Auth::guard(desa_module_release_meta('snake').'_web')->validate([
             'email' => $user->email,
             'password' => $password,
         ])) {
@@ -362,7 +362,7 @@ class AuthenticationService
      */
     public function resendEmailVerification(Request $request)
     {
-        $user = $request->user(desa_module_template_meta('snake').'_web');
+        $user = $request->user(desa_module_release_meta('snake').'_web');
 
         if ($user->hasVerifiedEmail()) {
             return;
@@ -393,7 +393,7 @@ class AuthenticationService
      */
     public function resetPassword(array $credentials): string
     {
-        return Password::broker(desa_module_template_meta('snake').'_users')->reset(
+        return Password::broker(desa_module_release_meta('snake').'_users')->reset(
             $credentials,
             function ($user) use ($credentials) {
                 $user->forceFill([
@@ -430,7 +430,7 @@ class AuthenticationService
      */
     public function sendPasswordResetLink(string $email): string
     {
-        $status = Password::broker(desa_module_template_meta('snake').'_users')->sendResetLink([
+        $status = Password::broker(desa_module_release_meta('snake').'_users')->sendResetLink([
             'email' => $email,
         ]);
 

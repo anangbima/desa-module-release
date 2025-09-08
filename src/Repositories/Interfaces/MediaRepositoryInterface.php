@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Repositories\Interfaces;
+namespace Modules\DesaModuleRelease\Repositories\Interfaces;
 
 interface MediaRepositoryInterface
 {

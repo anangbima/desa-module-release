@@ -1,13 +1,13 @@
-<x-desa-module-template::admin-layout
+<x-desa-module-release::admin-layout
     :title="__($title)"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(desa_module_release_meta('label'))"
     :desa="config('app.name')"
 >
 
 <h1>Edit User Status</h1>
 
-<form action="{{ route(desa_module_template_meta('kebab').'.admin.users.status.update', $user->slug) }}" method="POST">
+<form action="{{ route(desa_module_release_meta('kebab').'.admin.users.status.update', $user->slug) }}" method="POST">
     @csrf
     @method('PUT')
     <div>
@@ -18,7 +18,7 @@
         </select>
     </div>
     <button type="submit">Update Status</button>
-    <a href="{{ route(desa_module_template_meta('kebab').'.admin.users.index') }}">Cancel</a>
+    <a href="{{ route(desa_module_release_meta('kebab').'.admin.users.index') }}">Cancel</a>
 </form>
 
-</x-desa-module-template::admin-layout>
+</x-desa-module-release::admin-layout>

@@ -1,4 +1,4 @@
-<x-desa-module-template::auth-layout :title="__('Forgot Password | Desa Module Template')">
+<x-desa-module-release::auth-layout :title="__('Forgot Password | Desa Module Release')">
 
     <div class="rounded-xl pb-8 pt-6 px-8 shadow-2xl bg-white dark:bg-slate-900 animate-scale-in max-w-xl">
         <div>
@@ -16,7 +16,7 @@
                 </div>
             @endif
 
-            <form action="{{ route(desa_module_template_meta('kebab').'.password.email') }}" method="POST" class="space-y-4">
+            <form action="{{ route(desa_module_release_meta('kebab').'.password.email') }}" method="POST" class="space-y-4">
                 @csrf
                 @php
                     $emailIcon = '<span class="icon-[mage--email] text-lg"></span>';
@@ -48,4 +48,4 @@
         </div>
     </div>
 
-</x-desa-module-template::auth-layout>
+</x-desa-module-release::auth-layout>

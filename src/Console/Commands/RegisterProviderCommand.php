@@ -1,6 +1,6 @@
 <?php 
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\DesaModuleRelease\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -12,13 +12,13 @@ class RegisterProviderCommand extends Command
      * @var string
      */
     protected $signature;
-    protected $description = 'Register the Desa Module Template service provider';
+    protected $description = 'Register the Desa Module Release service provider';
 
     public function __construct()
     {
         // Set the command signature using the module prefix from the configuration
         // This allows the command to be namespaced under the module's prefix
-        $this->signature = 'module:desamoduletemplate:register-provider';
+        $this->signature = 'module:desamodulerelease:register-provider';
 
         parent::__construct();
     }
@@ -33,7 +33,7 @@ class RegisterProviderCommand extends Command
      */
     public function handle()
     {
-        $provider = 'Modules\DesaModuleTemplate\Providers\ModuleServiceProvider';
+        $provider = 'Modules\DesaModuleRelease\Providers\ModuleServiceProvider';
         $configPath = config_path('modules.php');
 
         if (!file_exists($configPath)) {

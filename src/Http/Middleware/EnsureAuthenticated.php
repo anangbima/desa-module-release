@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Middleware;
+namespace Modules\DesaModuleRelease\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -11,10 +11,10 @@ class EnsureAuthenticated
 {
     public function handle(Request $request, Closure $next, $guard = null) // temp
     {
-        $guard ??= desa_module_template_meta('snake').'_web';
+        $guard ??= desa_module_release_meta('snake').'_web';
 
         if (!Auth::guard($guard)->check()) {
-            return redirect()->route(desa_module_template_meta('kebab').'.login');
+            return redirect()->route(desa_module_release_meta('kebab').'.login');
         }
 
         return $next($request);

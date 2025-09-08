@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Resources\Shared;
+namespace Modules\DesaModuleRelease\Http\Resources\Shared;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

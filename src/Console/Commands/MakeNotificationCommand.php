@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\DesaModuleRelease\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -9,11 +9,11 @@ use Illuminate\Support\Str;
 class MakeNotificationCommand extends Command
 {
     protected $signature;
-    protected $description = 'Generate a new notification class using stub for Desa Module Template';
+    protected $description = 'Generate a new notification class using stub for Desa Module Release';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-notification
+        $this->signature = 'module:desamodulerelease:make-notification
             {name : Notification class name (e.g. ResetPasswordNotification)}';
 
         parent::__construct();
@@ -24,8 +24,8 @@ class MakeNotificationCommand extends Command
         $name = Str::studly($this->argument('name'));
         $className = $name;
 
-        $namespace = 'Modules\\DesaModuleTemplate\\Notifications';
-        $targetPath = base_path('Modules/desa-module-template/src/Notifications/'.$className.'.php');
+        $namespace = 'Modules\\DesaModuleRelease\\Notifications';
+        $targetPath = base_path('Modules/desa-module-release/src/Notifications/'.$className.'.php');
         $stubPath = __DIR__ . '/../../../stubs/notification.stub';
 
         File::ensureDirectoryExists(dirname($targetPath));
