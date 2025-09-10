@@ -161,17 +161,15 @@ class AuthenticationService
      */
     public function logout(Request $request)
     {
-        $user = Auth::guard(desa_module_release_meta('snake').'_web')->user();
+        $guard = desa_module_release_meta('snake').'_web'; // atau release
+
+        $user = Auth::guard($guard)->user();
 
         if ($user) {
-            // Log activity
             $this->logActivityService->log(
                 action: 'logout',
                 model: $user,
-                description: sprintf(
-                    'User "%s" has logged out successfully.',
-                    $user->name
-                ),
+                description: sprintf('User "%s" has logged out successfully.', $user->name),
                 before: [],
                 after: [
                     'id' => $user->id,
@@ -185,10 +183,15 @@ class AuthenticationService
             );
         }
 
-        Auth::guard(desa_module_release_meta('snake').'_web')->logout();
+        Auth::guard($guard)->logout();
 
-        $request->session()->invalidate();
+        // Hapus session key khusus guard ini saja
+        $loginKey = 'login_'.$guard.'_'.sha1(config('app.key'));
+        $request->session()->forget($loginKey);
+
         $request->session()->regenerateToken();
+
+        return;
     }
 
     /**
