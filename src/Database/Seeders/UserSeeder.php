@@ -3,16 +3,17 @@
 namespace Modules\DesaModuleRelease\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Modules\DesaModuleRelease\Models\User;
-use Modules\DesaModuleRelease\Models\Media;
+use Modules\DesaModuleRelease\Services\Shared\PermissionRegistrar;
 
 class UserSeeder extends Seeder
 {
-    public function run(): void
+    public function run(PermissionRegistrar $registrar)
     {
-        // Create admin
+        // Ambil model Role module template
+        $roleModel = $registrar->getRoleClass();
+
+        // Create admin user
         $admin = User::firstOrCreate(
             ['email' => 'admin@example.com'],
             [
@@ -22,22 +23,24 @@ class UserSeeder extends Seeder
                 'email_verified_at' => now(),
             ]
         );
-        $admin->assignRole('admin');
 
-        // // Tambahkan dummy foto profil untuk admin
-        // $admin->media()->create([
-        //     'name' => 'admin-profile.jpg',
-        //     'path' => 'dummy/admin-profile.jpg',
-        //     'type' => 'image/jpeg',
-        //     'size' => 123456,
-        //     'disk' => 'public',
-        //     'collection' => 'profile',
-        //     'usage' => 'profile',
-        // ]);
+        // Ambil role admin module template
+        $adminRole = $roleModel::where('name', 'admin')->first();
+        if ($adminRole) {
+            
+            $admin->roles()->syncWithoutDetaching([
+                $adminRole->id => ['model_type' => User::class]
+            ]);
+        }
 
-        // Create user
-        User::factory()->count(10)->create()->each(function ($user) {
-            $user->assignRole('user');
+        // Buat dummy users
+        User::factory()->count(10)->create()->each(function ($user) use ($roleModel) {
+            $userRole = $roleModel::where('name', 'user')->first();
+            if ($userRole) {
+                $user->roles()->syncWithoutDetaching([
+                    $userRole->id => ['model_type' => User::class]
+                ]);
+            }
         });
     }
 }

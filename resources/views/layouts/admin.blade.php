@@ -121,7 +121,8 @@
 
                     {{-- Notification button --}}
                     <x-notification-button 
-                        :urlListNotification="route('quick-notifications')" 
+                        :module="'desa-module-release'"
+                        :urlListNotification="route('quick-notifications', ['module' => 'desa-module-release'])" 
                         :urlAllNotification="route(desa_module_release_meta('kebab').'.admin.notifications.index')" 
                     />
 

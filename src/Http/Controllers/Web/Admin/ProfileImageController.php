@@ -12,19 +12,6 @@ class ProfileImageController extends Controller
     public function __construct(
         protected ProfileService $profileService
     ) {}
-    
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit()
-    {
-        $data = [
-            'title' => 'Change Profile Image',
-            'user' => desa_module_release_auth_user(),
-        ];
-
-        return view(desa_module_release_meta('kebab').'::web.admin.profile.image.edit', $data);
-    }
 
     /**
      * Update the specified resource in storage.

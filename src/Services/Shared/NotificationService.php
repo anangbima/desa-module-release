@@ -9,6 +9,8 @@ use Modules\DesaModuleRelease\Notifications\GeneralNotification;
 
 class NotificationService implements NotificationProviderInterface
 {
+    public string $module = 'desa-module-release';
+    
     public function __construct(
         protected UserRepositoryInterface $userRepository,
         protected LogActivityService $logActivityService,

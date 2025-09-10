@@ -20,7 +20,7 @@ use Modules\DesaModuleRelease\Http\Controllers\Web\Auth\VerifyEmailController;
  * 2. Login - ✅✅
  * 3. Forgot Password - ✅✅
  * 4. Reset Password - ✅✅
- * 5. Verify OTP - 
+ * 5. Verify OTP - ✅✅
  * 6. Socialite - ⛔
  * 
  */

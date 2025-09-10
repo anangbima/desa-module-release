@@ -12,7 +12,7 @@
         <div class="flex justify-between items-center py-6 pl-0 lg:pl-4 pr-8 animate-fade-in-up">
             <div class="">
                 <x-link 
-                    href="{{ route('landing-page') }}" 
+                    href="{{ route(desa_module_release_meta('kebab').'.index') }}" 
                     intent="ghost" 
                     size="base"
                 >

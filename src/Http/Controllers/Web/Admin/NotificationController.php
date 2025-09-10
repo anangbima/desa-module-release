@@ -65,7 +65,6 @@ class NotificationController extends Controller
         return $notification->created_at->format('d M Y');
     }
 
-
     /**
      * Display the specified resource.
      */

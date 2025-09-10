@@ -126,7 +126,7 @@ function replaceInFiles(string $directory, array $replacements): void
 
     foreach ($files as $file) {
         if ($file->isDir()) continue;
-        if (!in_array($file->getExtension(), ['php', 'json', 'js'])) continue;
+        if (!in_array($file->getExtension(), ['php', 'json', 'js', 'stub'])) continue;
 
         $contents = file_get_contents($file->getPathname());
         foreach ($replacements as $search => $replace) {

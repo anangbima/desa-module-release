@@ -67,7 +67,7 @@ class UserService
         $data['village_code'] = $data['village'] ?? null;
         
         // Ensure role is set, default to 'user' if not provided
-        $role = $data['role'] ?? 'user';
+        $role = $data['role'];
         unset($data['role']);
 
         // Ensure password is hashed

@@ -46,13 +46,20 @@ class LogActivityController extends Controller
     {
         $logActivity = $this->logActivityService->getLogById($log->id);
 
+        $role = desa_module_release_auth_user()->role;
+
         $data = [
             'log' => $logActivity,
             'title' => 'Log Activity Detail',
+            'role' => $role,
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_release_meta('kebab').'.admin.index'),
+                    'url' => route(desa_module_release_meta('kebab').'.user.index'),
+                ],
+                [
+                    'name' => 'Log Activity',
+                    'url' => route(desa_module_release_meta('kebab').'.user.logs.index'),
                 ],
                 [
                     'name' => 'Log Activity Detail',
@@ -61,6 +68,6 @@ class LogActivityController extends Controller
             ],
         ];
 
-        return view(desa_module_release_meta('kebab').'::web.user.log-activity.show', $data);
+        return view(desa_module_release_meta('kebab').'::web.shared.log-activity.show', $data);
     }   
 }

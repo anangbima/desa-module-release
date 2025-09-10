@@ -34,7 +34,6 @@ Route::prefix('admin')->middleware(desa_module_release_meta('snake') . '-auth')-
             ->parameter('profile', 'user')
             ->only([
                 'index',
-                'edit',
                 'update'
             ]);
 
@@ -43,7 +42,6 @@ Route::prefix('admin')->middleware(desa_module_release_meta('snake') . '-auth')-
             'prefix' => 'profile-image',
             'as' => 'profile-image.',
         ], function () {
-            Route::get('', [ProfileImageController::class, 'edit'])->name('edit');
             Route::put('/', [ProfileImageController::class, 'update'])->name('update');
             Route::delete('/', [ProfileImageController::class, 'destroy'])->name('destroy');
         });
@@ -67,7 +65,6 @@ Route::prefix('admin')->middleware(desa_module_release_meta('snake') . '-auth')-
 
         // User Status
         Route::prefix('users/{user}/status')->name('users.status.')->group(function () {
-            Route::get('edit', [UserStatusController::class, 'edit'])->name('edit');
             Route::put('/', [UserStatusController::class, 'update'])->name('update');
         });
 

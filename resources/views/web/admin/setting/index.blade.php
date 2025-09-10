@@ -6,6 +6,14 @@
     :breadcrumbs="$breadcrumbs"
 >
 
+<br>
+    @if(session('success'))
+        <div class="alert alert-success mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
+<br>
+
     <form action="{{ route(desa_module_release_meta('kebab').'.admin.settings.update') }}" method="POST">
         @csrf
         @method('PUT')

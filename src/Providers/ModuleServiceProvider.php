@@ -2,6 +2,8 @@
 
 namespace Modules\DesaModuleRelease\Providers;
 
+use Illuminate\Cache\CacheManager;
+use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Modules\DesaModuleRelease\Providers\Concerns\BindRepositories;
@@ -14,6 +16,7 @@ use Modules\DesaModuleRelease\Providers\Concerns\LoadModelConfigs;
 use Modules\DesaModuleRelease\Providers\Concerns\RegisterCommands;
 use Modules\DesaModuleRelease\Providers\Concerns\RegisterHelpers;
 use Modules\DesaModuleRelease\Providers\Concerns\RegisterMiddlewares;
+use Modules\DesaModuleRelease\Services\Shared\PermissionRegistrar;
 
 class ModuleServiceProvider extends ServiceProvider
 {
@@ -57,6 +60,9 @@ class ModuleServiceProvider extends ServiceProvider
 
         // Configure notifications
         $this->configureNotifications();
+
+        // Load permission and role spatie
+        $this->configurePermissions();
     }
 
     /**
@@ -79,12 +85,11 @@ class ModuleServiceProvider extends ServiceProvider
         $this->registerModuleCommands();
         
         // load database only in test environmenr
-        if (app()->environment('test')) {
-            $this->loadDatabaseConfig();
-        }
-        
-        // Load permission and role spatie
-        $this->configurePermissions();
+        // if (app()->environment('test')) {
+        //     $this->loadDatabaseConfig();
+        // }
+
+        $this->loadDatabaseConfig();
         
         // Binding Repository
         $this->bindRepositories();
@@ -94,5 +99,12 @@ class ModuleServiceProvider extends ServiceProvider
 
         // load helper
         $this->registerHelpers();
+
+        $this->app->singleton(PermissionRegistrar::class, function ($app) {
+            return new PermissionRegistrar(
+                $app->make(CacheManager::class),
+                $app->make(Dispatcher::class)
+            );
+        });
     }
 }

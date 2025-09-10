@@ -36,30 +36,8 @@ class ProfileController extends Controller
                 ],
             ],
         ];
-
-
-        // return view(desa_module_release_meta('kebab') . '::web.admin.profile.index', $data);
+        
         return view(desa_module_release_meta('kebab') . '::web.shared.profile.index', $data);
-    }
-
-    /**
-     * Display form for edit profile.
-     */
-    public function edit()
-    {
-        $data = [
-            'title' => 'Edit Profile',
-            'user' => desa_module_release_auth_user(),
-            'provinceOptions' => $this->regionService->getProvinces()->map(function ($province) {
-                return [
-                    'value' => $province->code,
-                    'label' => $province->name,
-                ];
-            })->toArray(),
-        ];
-        // dd($data['provinceOptions']);
-
-        return view(desa_module_release_meta('kebab') . '::web.admin.profile.edit', $data);
     }
 
     /**

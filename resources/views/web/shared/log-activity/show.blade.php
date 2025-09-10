@@ -1,13 +1,13 @@
-<x-desa-module-release::admin-layout
-    :title="$title"
-    :role="'Admin'"
+<x-dynamic-component
+    :component="'desa-module-release::' . $role . '-layout'"
+    :title="__($title)"
+    :role="$role"
     :module="__(desa_module_release_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
-
     <div class="flex justify-center">
-        <div class="w-full space-y-8 pb-8">
+        <div class="w-full space-y-8 pb-8 ">
             {{-- Profil & Action --}}
             <div class="flex justify-between items-center">
                 {{-- Profile --}}
@@ -88,4 +88,4 @@
         </div>
     </div>
 
-</x-desa-module-release::admin-layout>
+</x-dynamic-component>

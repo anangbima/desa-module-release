@@ -3,13 +3,16 @@
 namespace Modules\DesaModuleRelease\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\DesaModuleRelease\Models\Permission;
 use Modules\DesaModuleRelease\Models\Role;
+use Modules\DesaModuleRelease\Services\Shared\PermissionRegistrar;
 
 class RolePermissionSeeder extends Seeder
 {
-    public function run()
+    public function run(PermissionRegistrar $registrar)
     {
+        // Dapatkan model permission dari registrar
+        $permissionModel = $registrar->getPermissionClass();
+
         // Roles
         $roles = ['admin', 'user'];
 
@@ -20,39 +23,32 @@ class RolePermissionSeeder extends Seeder
             ]);
         }
 
+        // Permissions
         $permissions = collect([
             ['name' => 'user create', 'module_name' => 'user'],
             ['name' => 'user update', 'module_name' => 'user'],
             ['name' => 'user delete', 'module_name' => 'user'],
             ['name' => 'user show', 'module_name' => 'user'],
             ['name' => 'user index', 'module_name' => 'user'],
-
-            ['name' => 'permission index', 'module_name' => 'permission'],
-            ['name' => 'permission create', 'module_name' => 'permission'],
-            ['name' => 'permission update', 'module_name' => 'permission'],
-            ['name' => 'permission delete', 'module_name' => 'permission'],
-            ['name' => 'permission show', 'module_name' => 'permission'],
-
-            ['name' => 'role index', 'module_name' => 'role'],
-            ['name' => 'role create', 'module_name' => 'role'],
-            ['name' => 'role update', 'module_name' => 'role'],
-            ['name' => 'role delete', 'module_name' => 'role'],
-            ['name' => 'role show', 'module_name' => 'role'],
         ]);
 
-        foreach ($permissions as $permission) {
-            Permission::firstOrCreate([
-                'name' => $permission['name'],
-                'guard_name' => 'desa_module_release_web',
-            ], [
-                'module_name' => $permission['module_name'],
-            ]);
+        foreach ($permissions as $perm) {
+            $permissionModel::firstOrCreate(
+                [
+                    'name' => $perm['name'],
+                    'guard_name' => 'desa_module_release_web',
+                ],
+                [
+                    'module_name' => $perm['module_name'],
+                ]
+            );
         }
 
+        // Hubungkan semua permission ke admin pakai model instance langsung
         $admin = Role::where('name', 'admin')->first();
         if ($admin) {
-            $allPermissions = Permission::pluck('name')->toArray();
-            $admin->syncPermissions($allPermissions);
+            $allPermissions = $permissionModel::all();
+            $admin->syncPermissions($allPermissions); // pakai instance langsung
         }
     }
 }

@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Modules\DesaModuleRelease\Models\Notification;
 use Modules\DesaModuleRelease\Models\User;
+use Modules\DesaModuleRelease\Services\Shared\PermissionRegistrar;
 
 class NotificationSeeder extends Seeder
 {
@@ -20,7 +21,13 @@ class NotificationSeeder extends Seeder
                 'updated_at' => fn() => Carbon::now()->subDays(rand(0, 30)),
             ]);
 
-        $admins = User::role('admin')->get();
+        $registrar = app(PermissionRegistrar::class);
+        $roleModel = $registrar->getRoleClass();
+        $adminRole = $roleModel::where('name', 'admin')->first();
+
+        $admins = User::whereHas('roles', function ($q) use ($adminRole) {
+            $q->where('role_id', $adminRole->id);
+        })->get();
 
         foreach ($admins as $admin) {
             // 5 notifikasi hari ini

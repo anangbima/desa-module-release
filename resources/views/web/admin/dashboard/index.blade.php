@@ -80,7 +80,7 @@
         {{-- Left: Chart --}}
         <div class="lg:col-span-2">
             <h2 class="font-semibold mb-4">Statistics</h2>
-            <canvas id="statsChart" class="w-full h-64"></canvas>
+            {{-- <canvas id="statsChart" class="w-full h-64"></canvas> --}}
         </div>
 
         {{-- Right: Recent Activities --}}

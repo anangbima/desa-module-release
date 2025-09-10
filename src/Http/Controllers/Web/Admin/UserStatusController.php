@@ -14,21 +14,6 @@ class UserStatusController extends Controller
     ) {} 
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
-    {
-        $user = $this->userService->getUserById($user->id);
-
-        $data = [
-            'user' => $user,
-            'title' => 'Edit User Status',
-        ];
-
-        return view(desa_module_release_meta('kebab').'::web.admin.user.status.edit', $data);
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, User $user)
