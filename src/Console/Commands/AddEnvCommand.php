@@ -39,6 +39,7 @@ class AddEnvCommand extends Command
             'DESA_MODULE_RELEASE_SESSION_CONNECTION' => 'desa_module_release',
             'DESA_MODULE_RELEASE_SESSION_TABLE' => 'desa_module_release_sessions',
             'DESA_MODULE_RELEASE_SESSION_COOKIE' => 'desa_module_release_session',
+            ''
         ];
 
         $envPath = base_path('.env');

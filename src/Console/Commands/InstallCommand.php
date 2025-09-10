@@ -72,7 +72,7 @@ class InstallCommand extends Command
             $migrationPath = 'modules/desa-module-release/src/Database/Migrations';
             $realMigrationPath = base_path($migrationPath);
         } else {
-            $realMigrationPath = realpath('vendor/modules/desa-module-release/src/Database/Migrations');
+            $realMigrationPath = realpath('vendor/desadigital/desa-module-release/src/Database/Migrations');
             $migrationPath = $realMigrationPath;
         }
 
